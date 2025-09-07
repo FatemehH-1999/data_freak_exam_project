@@ -1,23 +1,23 @@
 #tidying dataset 1: "exam_data.txt"
 
-#loading necessary librarys
+#loading necessary librarys----
 library(tidyverse)
 library(here)
 
-#reading data and assining to data1
+#reading data and assining to data1----
 data1 <- read_delim(here("data", "exam_data.txt"), delim = "\t")
 
-#exploring data
+#exploring data----
 
 glimpse(data1)
 ## 15 columns and 34,048 rows
 skimr::skim(data1)
 
 
-#Task: Are all variables present as columns?
+#Task: Are all variables present as columns?----
 
 data1
-##checking for colums with double meaning or mult. values in column
+##checking for columns with double meaning or mult. values in column----
 
 glimpse(data1$subject)
 glimpse(data1$gender-age) #not working, bound by "-"
@@ -27,7 +27,7 @@ glimpse(data1$gender-age) #not working, bound by "-"
 #glimpse(data1$time measurement) #not working
 #not working with space in name
 
-####first changing column names to get access to data####
+####first changing column names to get access to data####----
 
 #finding columns with false names
 glimpse(data1)
@@ -44,16 +44,17 @@ data1 <- data1 %>%
 glimpse(data1)
 ##names sucessfully changed
 
-####end of column name changes for access####
+####end of column name changes for access####----
 
 #looking for columns to separate
 glimpse(data1)
 
-##columns to separate: "subject", "gender_age"
+##columns to separate: "subject", "gender_age"----
 
 data1_dummy <- data1 %>% 
   separate_wider_delim(subject, delim = " ", names = c("ID", "first_name", "last_name")) %>% 
-  separate_wider_delim(subject, delim = " ", names = c("ID", "first_name", "last_name"))
+  separate_wider_delim(gender_age, delim = "-", names = c("gender", "age"))
 glimpse(data1_dummy)
 
-data1_dummy$last_name
+#writing file to save tidied data set----
+write_csv(data1_dummy, here("data", "exam_data.csv"))
