@@ -12,8 +12,8 @@ data1 <- read_delim(here("data", "exam_data.txt"), delim = "\t")
 glimpse(data1)
 ## 15 columns and 34,048 rows
 skimr::skim(data1)
-
-
+head(data1)
+tail(data1)
 #Task: Are all variables present as columns?----
 
 data1
@@ -55,6 +55,12 @@ data1_dummy <- data1 %>%
   separate_wider_delim(subject, delim = " ", names = c("ID", "first_name", "last_name")) %>% 
   separate_wider_delim(gender_age, delim = "-", names = c("gender", "age"))
 glimpse(data1_dummy)
+head(data1_dummy)
+tail(data1_dummy)
+
+#changing type of column "ID" and "age" to numeric instead of character
+data1_dummy$ID <- as.numeric(data1_dummy$ID)
+data1_dummy$age <- as.numeric(data1_dummy$age)
 
 #writing file to save tidied data set----
 write_csv(data1_dummy, here("data", "exam_data.csv"))
