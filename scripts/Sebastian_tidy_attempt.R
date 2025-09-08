@@ -59,8 +59,8 @@ head(data1_dummy)
 tail(data1_dummy)
 
 #changing type of column "ID" and "age" to numeric instead of character
-data1_dummy$ID <- as.numeric(data1_dummy$ID)
-data1_dummy$age <- as.numeric(data1_dummy$age)
+#data1_dummy$ID <- as.numeric(data1_dummy$ID)
+#data1_dummy$age <- as.numeric(data1_dummy$age)
 
-#writing file to save tidied data set----
-write_csv(data1_dummy, here("data", "exam_data.csv"))
+#writing file to save pre-tidied data set----
+write_delim(data1_dummy, here("data", "exam_data_tidy.txt"))
