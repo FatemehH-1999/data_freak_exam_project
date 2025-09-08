@@ -31,6 +31,8 @@ skimr::skim(exam_data)
 #I do not know at the moment as the id is combined with first name and family name but let me check
 
 length(unique(exam_data$subject))
+exam_data%>%
+ distinct(exam_data$subject)
 #there are duplications as it shows 12344 observations
 
 # Get all column names
@@ -55,5 +57,5 @@ combined_vars <- exam_data %>%
 #pan day is numeric
 #1_test_id, either covid or xcvd1
 #variable called 'row', looks like there are two tests for an individual 
-#could not understand .value, values are numberic, one value has negative while there are some zero values
+#could not understand .value, values are numeric, one value has negative while there are some zero values
 #
