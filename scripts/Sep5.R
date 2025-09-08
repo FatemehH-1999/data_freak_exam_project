@@ -34,3 +34,16 @@ data1 %>%
 data1 %>%
   select(contains("age")) %>%
   count()
+
+#unique observations in the data set
+data1 %>%
+  distinct(subject)
+data1
+
+#Check variable types 
+typeof(data1$clinic_name)
+typeof(data1$`gender-age`)
+typeof(data1$demo_group)
+typeof(data1$drive_thru_ind)
+typeof(data1$orderset)
+typeof(data1$payor_group)
