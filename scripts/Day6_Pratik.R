@@ -18,3 +18,9 @@ pivot_wider(
 exam_data_tidy_wide <- exam_data_tidy_wide %>%
   mutate(rec_ver_tat_level = if_else(rec_ver_tat <= 100, "Low", "High"))
 
+merged_df <- left_join(
+  exam_data_tidy_wide,
+  exam_data_join,
+  by = c("ID" = "id")
+)
+
