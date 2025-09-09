@@ -2,7 +2,7 @@
 library(tidyverse)
 library(here)
 #Read the .txt file from the folder
-exam_data_tidy <- read_delim(here("data", "exam_data_tidy.txt"), delim = "\t")
+exam_data_tidy <- read_delim(here("data", "exam_data_tidy.txt"), delim = " ")
 spec(exam_data_tidy)
 glimpse(exam_data_tidy)
 skimr::skim(exam_data_tidy)
@@ -17,3 +17,4 @@ pivot_wider(
 
 exam_data_tidy_wide <- exam_data_tidy_wide %>%
   mutate(rec_ver_tat_level = if_else(rec_ver_tat <= 100, "Low", "High"))
+
