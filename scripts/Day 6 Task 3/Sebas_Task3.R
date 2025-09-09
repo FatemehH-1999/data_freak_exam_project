@@ -13,6 +13,16 @@ glimpse(data1)
 data1_dummy <- data1 %>% 
   select(-c(row, test_id, demo_group))
 
+####Pratik's part
+
+
+
+
+
+
+
+####End of Pratik's part
+
 #Make necessary changes in variable types.
 #changing type of column "ID" and "age" to numeric instead of character
 data1_dummy$ID <- as.numeric(data1_dummy$ID)
