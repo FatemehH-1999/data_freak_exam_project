@@ -1,4 +1,4 @@
-#started on 08.09.25----
+#started on 08.09.25 - deviding tasks and working on parts of task 3 ----
 #loading libraries
 library(tidyverse)
 library(here)
@@ -45,10 +45,12 @@ data1_dummy <- data1_dummy %>%
 data1_dummy <- data1_dummy %>% 
   arrange(ID)
 
-#clearing misunderstandings and start merging present code chunks from everybody into one merged script----
+
+#clearing misunderstandings, reworking parts of the code and started merging present code chunks from everybody into one merged script - 09.09.25----
+##RMED_Task3_merged_2025-09-09.R
 
 
-#continuation on 10.09.25----
+#continuation of tasks on 10.09.25----
 #read and join the additional dataset to your main dataset.
 data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
 
@@ -58,9 +60,10 @@ data1_dummy <- data1_dummy %>%
 #Stratify your data by a categorical column and report min, max, mean and sd of a numeric column for a defined set of observations 
 ##Only for persons tested "pan_day" later than 50 
 
-#getting every ID/person tested 50 days after pandemic start
+#getting every ID/person tested 50 days after pandemic start and arrange after "pan_day"
 data1_stratified_panday <- data1_dummy %>% 
-  filter(pan_day > 50)
+  filter(pan_day > 50) %>% 
+  arrange(pan_day)
 
 #count of observations
 glimpse(data1_stratified_panday)
