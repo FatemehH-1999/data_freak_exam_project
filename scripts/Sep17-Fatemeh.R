@@ -103,6 +103,18 @@ dim(df9) #34048 rows and 15 columns
 glimpse(df9)
 
 # Save the tidy data ----
+# make sure the "data" folder exists
+dir.create(here("data"), showWarnings = FALSE)
+
+# path to the file you want to create
+fileName <- here("data", "20250917-tidy-exam-data.txt")
+
+# write df9 as a tab-delimited text file
+write_delim(
+  df9,
+  file = fileName,  
+  delim = "\t"
+)
 
 
 
