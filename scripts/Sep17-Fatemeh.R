@@ -32,7 +32,7 @@ df2
 
 #Create a set of new columns:
 ##A column showing whether rec_ver_tat is higher than 100 or not: values High/Low
-df3 <- df2 %>%
+df3 <- df1 %>%
   mutate(rec_ver_tat_level = if_else( time_measurement> 100, "High", "Low"))
 df3
 
@@ -51,7 +51,33 @@ df6 <- df5 %>%
   mutate(ct_orderset_product = ct_result * orderset)
 df6
 
-#seperating gender_age column 
+#columns containing combined variables
+df6 %>%
+  select(contains("age")) %>%
+  count()
+
+#unique observations in the data set
+df6 %>%
+  distinct(subject)
+df6
+
+#Check variable types 
+typeof(data1$clinic_name)
+typeof(data1$`gender-age`)
+typeof(data1$demo_group)
+typeof(data1$drive_thru_ind)
+typeof(data1$orderset)
+typeof(data1$payor_group)
+typeof(data1$result)
+typeof(data1$patient_class)
+typeof(data1$ct_result)
+
+#Remove rows where any NA appears anywhere
+df6 %>%
+  drop_na()
+df6
+
+#separating gender_age column 
 df7 <- df6 %>%
   separate(gender_age, into = c("gender", "age"), sep = "-") %>%
   mutate(age = as.numeric(age))
@@ -66,5 +92,19 @@ df8
 df9 <- df1 %>%
   arrange(row)
 df9
+
+#Remove rows where any NA appears anywhere
+df9 %>%
+  drop_na()
+df9
+
+# Check the dimensions and variable type of the tidied data
+dim(df9) #34048 rows and 15 columns 
+glimpse(df9)
+
+# Save the tidy data ----
+
+
+
 
 #Read and join the additional dataset to your main dataset.
