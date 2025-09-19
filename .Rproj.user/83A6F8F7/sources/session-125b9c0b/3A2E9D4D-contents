@@ -1,4 +1,0 @@
-#loading libraries
-library(tidyverse)
-library(here)
-data3 <- read_delim(here("data", "exam_data_join.txt"), delim = " ")

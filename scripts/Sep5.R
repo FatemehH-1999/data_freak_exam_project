@@ -1,18 +1,22 @@
+#read the data -----
+
 library(tidyverse)
 library(here)
 data1 <- read_delim(here("data", "exam_data.txt"), delim = "\t")
 
+#exploring exam data file
+#overview of the data
 data1 %>% 
   glimpse()
-
 data1 %>%
   head()
-
 data1 %>%
   tail()
-
 data1 %>%
   summary()
+
+skimr::skim(data1)
+naniar::gg_miss_var(data1)
 
 library(dplyr)
 data1 %>%
