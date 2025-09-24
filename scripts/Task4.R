@@ -4,15 +4,33 @@
 library(tidyverse)
 library(here)
 
-data <- read_delim(here("data", "20250917-tidy-exam-data.txt"), delim = "\t")
+data <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
 data
 
-ggplot(data, aes(x = age, y = ct_result, fill = age)) +
+# Boxplot: compares medians & spread
+ggplot(data, aes(x = gender, y = ct_result, fill = gender)) +
   geom_boxplot(alpha = 0.7, outlier.color = "red") +
-  labs(title = "Distribution of ct_result by age",
-       x = "age",
+  labs(title = "Distribution of ct_result by gender",
+       x = "gender",
        y = "ct_result") +
   theme_minimal() +
   theme(legend.position = "none")
-ggplot(data1, aes(x = sex, y = ct_result)) +
-  geom_boxplot()
+
+# Violin plot: shows full distribution shape
+ggplot(data, aes(x = gender, y = ct_result, fill = gender)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, fill = "white") +
+  labs(title = "Violin plot of ct_result by gender",
+       x = "gender",
+       y = "ct_result") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Density plot: both groups overlaid
+ggplot(data, aes(x = ct_result, colour = gender, fill = gender)) +
+  geom_density(alpha = 0.4) +
+  labs(title = "Density of ct_result by gender",
+       x = "ct_result",
+       y = "Density") +
+  theme_minimal()
+
