@@ -1,0 +1,35 @@
+#Task5_Fatemeh 
+##Is there a difference in the distributions of ct_results between different outcome groups (result)
+
+library(tidyverse)
+library(here)
+
+data <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
+data
+
+# Boxplot – compare median and spread across groups
+ggplot(data, aes(x = result, y = ct_result, fill = result)) +
+  geom_boxplot(alpha = 0.7, outlier.color = "red") +
+  labs(title = "Distribution of ct_result across outcome groups",
+       x = "Outcome group (result)",
+       y = "ct_result") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Violin plot – show full distribution shape
+ggplot(data, aes(x = result, y = ct_result, fill = result)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, fill = "white") +
+  labs(title = "Violin plot of ct_result by outcome group",
+       x = "Outcome group (result)",
+       y = "ct_result") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Overlaid density curves – all groups on the same axis
+ggplot(data, aes(x = ct_result, colour = result, fill = result)) +
+  geom_density(alpha = 0.4) +
+  labs(title = "Density of ct_result by outcome group",
+       x = "ct_result",
+       y = "Density") +
+  theme_minimal()

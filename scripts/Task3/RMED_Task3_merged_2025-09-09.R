@@ -101,6 +101,14 @@ tail(data)
 #Explore and comment on the missing variables----
 
 
+data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = "\t") %>%                                  # <-- use 'data' here
+  summarise(across(everything(), ~sum(is.na(.)))) %>%
+  pivot_longer(cols = everything(),
+               names_to = "variable",
+               values_to = "missing_count") %>%
+  mutate(missing_percent = 100 * missing_count / nrow(data)) %>%   
+  arrange(desc(missing_percent))
+
 
 
 #Stratifying of data by each person----
@@ -135,7 +143,21 @@ age_stratified_after_panday_total <- data1 %>%
             sd = sd(age))
 
 ##Fatemeh----
+##Only for persons with ct_result == 45
+data1 <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ") 
+data_stratified_ct_result <- data1 %>% 
+  filter(ct_result == 45) %>% 
+  arrange(ct_result)
 
+###calculating and outputting min, max, mean and sd of column "age" after grouping by ct_result == 45
+data1 %>%
+  filter(ct_result == 45) %>%                               
+  group_by(ct_result) %>% 
+  summarise(n = n(), 
+            min = min(age),
+            max = max(age), 
+            mean = mean(age), 
+            sd = sd(age))
 
 
 ##Pratik----
