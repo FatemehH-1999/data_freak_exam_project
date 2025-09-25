@@ -8,6 +8,7 @@ data <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
 data
 
 # Boxplot – compare median and spread across groups
+##Yes, ct_result values are lower in positive cases and higher in negative ones, with no data for the invalid group.
 ggplot(data, aes(x = result, y = ct_result, fill = result)) +
   geom_boxplot(alpha = 0.7, outlier.color = "red") +
   labs(title = "Distribution of ct_result across outcome groups",
@@ -26,13 +27,6 @@ ggplot(data, aes(x = result, y = ct_result, fill = result)) +
   theme_minimal() +
   theme(legend.position = "none")
 
-# Overlaid density curves – all groups on the same axis
-ggplot(data, aes(x = ct_result, colour = result, fill = result)) +
-  geom_density(alpha = 0.4) +
-  labs(title = "Density of ct_result by outcome group",
-       x = "ct_result",
-       y = "Density") +
-  theme_minimal()
 
 #Task5 Pratik
 #Quesiton 5
