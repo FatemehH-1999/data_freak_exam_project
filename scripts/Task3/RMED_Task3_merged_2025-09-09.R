@@ -99,8 +99,16 @@ glimpse(data)
 tail(data)
 
 #Explore and comment on the missing variables----
+##missing_count = 0, missing_percent = 0 
 
-
+data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = "\t") %>%                                 
+  summarise(across(everything(), ~sum(is.na(.)))) %>%
+  pivot_longer(cols = everything(),
+               names_to = "variable",
+               values_to = "missing_count") %>%
+  mutate(missing_percent = 100 * missing_count / nrow(data)) %>%   
+  arrange(desc(missing_percent))
+data
 
 
 #Stratifying of data by each person----
@@ -135,10 +143,36 @@ age_stratified_after_panday_total <- data1 %>%
             sd = sd(age))
 
 ##Fatemeh----
+##Only for persons with ct_result == 45
+data1 <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ") 
+data_stratified_ct_result <- data1 %>% 
+  filter(ct_result == 45) %>% 
+  arrange(ct_result)
 
+###calculating and outputting min, max, mean and sd of column "age" after grouping by ct_result == 45
+data1 %>%
+  filter(ct_result == 45) %>%                               
+  group_by(ct_result) %>% 
+  summarise(n = n(), 
+            min = min(age),
+            max = max(age), 
+            mean = mean(age), 
+            sd = sd(age))
 
 
 ##Pratik----
+#Stratify your data by a categorical column and report min, max, mean and sd of a numeric column
+#Only for persons with patient_class == inpatient
+merged_data %>%
+  filter(patient_class == "inpatient") %>% 
+  group_by(gender) %>%
+  summarise(
+    min_value  = min(pan_day,na.rm = TRUE),
+    max_value  = max(pan_day,na.rm = TRUE),
+    mean_value = mean(pan_day,na.rm = TRUE),
+    sd_value   = sd(pan_day,na.rm = TRUE),
+    .groups = "drop"
+  )
 
 
 
@@ -148,3 +182,6 @@ age_stratified_after_panday_total <- data1 %>%
 data1_dummy %>% 
   count (ID, first_name)
 #any more ideas???
+#Pratik
+merged_data %>%
+  with(table(gender, rec_ver_tat_level))

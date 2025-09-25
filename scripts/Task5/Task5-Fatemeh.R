@@ -1,0 +1,39 @@
+#Task5_Fatemeh 
+##Is there a difference in the distributions of ct_results between different outcome groups (result)
+
+library(tidyverse)
+library(here)
+
+data <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
+data
+
+# Boxplot – compare median and spread across groups
+##Yes, ct_result values are lower in positive cases and higher in negative ones, with no data for the invalid group.
+ggplot(data, aes(x = result, y = ct_result, fill = result)) +
+  geom_boxplot(alpha = 0.7, outlier.color = "red") +
+  labs(title = "Distribution of ct_result across outcome groups",
+       x = "Outcome group (result)",
+       y = "ct_result") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Violin plot – show full distribution shape
+ggplot(data, aes(x = result, y = ct_result, fill = result)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, fill = "white") +
+  labs(title = "Violin plot of ct_result by outcome group",
+       x = "Outcome group (result)",
+       y = "ct_result") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+
+#Task5 Pratik
+#Quesiton 5
+#Are there more positive tests in the drive-through?
+merged_data %>%
+  with(table(result, drive_thru_ind))
+merged_data %>%
+  with(prop.table(table(result, drive_thru_ind)))
+
+#Yes, there are more positive tests in the drive-through group both by count (479 versus 386) and proportion (3.1% versus 2.5%)

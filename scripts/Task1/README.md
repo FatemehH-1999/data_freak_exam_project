@@ -1,5 +1,11 @@
-#Data_freak_exam_project 2025
+# data_freak_exam_project
 This project is part of the RMED901 course, and the answers were prepared by the Data Freak exam project group.
+
+#Task1
+#Goal
+
+##Create an RStudio project and GitHub repository
+data_freak_exam_project is made on RStudio and GitHub for this project
 
 ##files and folders structures
 
