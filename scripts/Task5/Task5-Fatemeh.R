@@ -33,3 +33,13 @@ ggplot(data, aes(x = ct_result, colour = result, fill = result)) +
        x = "ct_result",
        y = "Density") +
   theme_minimal()
+
+#Task5 Pratik
+#Quesiton 5
+#Are there more positive tests in the drive-through?
+merged_data %>%
+  with(table(result, drive_thru_ind))
+merged_data %>%
+  with(prop.table(table(result, drive_thru_ind)))
+
+#Yes, there are more positive tests in the drive-through group both by count (479 versus 386) and proportion (3.1% versus 2.5%)
