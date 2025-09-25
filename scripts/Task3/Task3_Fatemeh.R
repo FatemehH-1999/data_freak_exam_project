@@ -1,7 +1,7 @@
 #loading libraries
 library(tidyverse)
 library(here)
-data2 <- read_delim(here("data", "exam_data_tidy1.txt"), delim = " ")
+data2 <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ")
 
 #exploring tidy version of the data se
 glimpse(data2)
