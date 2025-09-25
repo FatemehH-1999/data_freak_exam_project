@@ -35,7 +35,7 @@ x
 
 #Does the distribution of the ct_result differ with payor_group?
 # Violin plot: shows full distribution shape
-ggplot(data1, aes(x = payor_group, y = ct_result)) +
+ggplot(data1, aes(x = payor_group, y = ct_result, fill = payor_group)) +
   geom_violin(trim = FALSE, alpha = 0.6) +
   geom_boxplot(width = 0.2, fill = "white") +
   labs(title = "Violin plot of CT results grouped by health care category",
@@ -51,7 +51,11 @@ ggplot(data1, aes(y = payor_group, x = ct_result, fill = payor_group, height = a
   scale_y_discrete(expand = c(0.01, 0)) +
   scale_x_continuous(expand = c(0.01, 0)) +
   theme_ridges() +
-  xlim(0, 50)
+  labs(title = "Ridgeline chart of CT results grouped by health care category",
+       x = "ct results",
+       y = "") +
+  theme(legend.position = "none") +
+  xlim(15, 50)
 
 #All groups share the largest distribution at ct_result = 45, with "commercial" having the most results at 45.
 #"Government" and "medical assistance" have second highest number at 45. Rest groups approx. same number.
