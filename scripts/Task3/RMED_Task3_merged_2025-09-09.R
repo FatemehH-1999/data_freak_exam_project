@@ -101,7 +101,7 @@ tail(data)
 #Explore and comment on the missing variables----
 
 
-data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = "\t") %>%                                  # <-- use 'data' here
+data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = "\t") %>%                                 
   summarise(across(everything(), ~sum(is.na(.)))) %>%
   pivot_longer(cols = everything(),
                names_to = "variable",
