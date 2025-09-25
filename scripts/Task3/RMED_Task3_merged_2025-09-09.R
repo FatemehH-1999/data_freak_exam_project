@@ -99,7 +99,7 @@ glimpse(data)
 tail(data)
 
 #Explore and comment on the missing variables----
-
+##missing_count = 0, missing_percent = 0 
 
 data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = "\t") %>%                                 
   summarise(across(everything(), ~sum(is.na(.)))) %>%
@@ -108,7 +108,7 @@ data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = "\t") 
                values_to = "missing_count") %>%
   mutate(missing_percent = 100 * missing_count / nrow(data)) %>%   
   arrange(desc(missing_percent))
-
+data
 
 
 #Stratifying of data by each person----
