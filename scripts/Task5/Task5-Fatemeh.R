@@ -27,7 +27,7 @@ ggplot(data, aes(x = result, y = ct_result, fill = result)) +
 # Violin plot – show full distribution shape
 ggplot(data, aes(x = result, y = ct_result, fill = result)) +
   geom_violin(trim = FALSE, alpha = 0.6) +
-  geom_boxplot(width = 0.1, fill = "white") +
+  geom_boxplot(width = 0.2, fill = "white") +
   labs(title = "Violin plot of ct_result by outcome group",
        x = "Outcome group (result)",
        y = "ct_result") +
