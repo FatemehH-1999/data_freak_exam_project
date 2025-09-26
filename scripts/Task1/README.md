@@ -27,15 +27,16 @@ includes all tasks for the data
       +[merged_script.R](scripts/Task2/merged_script.R): merged version of all the scripts 
       
     + [Task3](scripts/Task3):
-      +[RMED_Task3_merged_2025-09-09.R](scripts/Task3/RMED_Task3_merged_2025-09-09.R): Merged version of all scripts
       +[Sebas_Task3.R](scripts/Task3/Sebas_Task3.R): Sebastian's script
       +[Task2,3 revision- Fatemeh.R](scripts/Task3/Task2,3 revision- Fatemeh.R): Fatemeh's script
       +[Task3_Fatemeh.R](scripts/Task3/Task3_Fatemeh.R): Fatemeh's script
+      +[RMED_Task3_merged_2025-09-09.R](scripts/Task3/RMED_Task3_merged_2025-09-09.R): Merged version of all scripts
       
     + [Task4](scripts/Task4):
       +[Task4_Fatemeh.R](scripts/Task4/Task4_Fatemeh.R): Fatemeh's script
       +[Question4_Pratik.R](scripts/Task4/Question4_Pratik.R): Pratik's script
       +[Sebas_Task4_2025-09-10.R](scripts/Task4/Sebas_Task4_2025-09-10.R): Sebastian's script
+      +[RMED_Task4_merged_2025-09-26.R](scripts/Task4/Sebas_Task4_2025-09-26.R): Merged version of all scripts
       
     + [Task5](scripts/Task5):
       +[Task5_Fatemeh.R](scripts/Task5/Task5_Fatemeh.R): Fatemeh's script
