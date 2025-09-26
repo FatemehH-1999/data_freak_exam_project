@@ -1,6 +1,6 @@
 #Task-4 Group: Data_Freak
-#Goal
-Create plots that would help answer these questions
+#Goal:
+#Create plots that would help answer these questions
 
 #Description of code parts----
 ##loading libraries----
