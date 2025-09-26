@@ -54,6 +54,7 @@ includes all tasks for the data
 [results](results)  
    + [tidy data version 1](results/tidy data version 1):
      +[exam_data_tidy1.txt](results/tidy data version 1/exam_data_tidy1.txt): first tidy version of exam data 
+     +[codebook_exam_data_tidy.html](results/tidy data version 1/codebook_exam_data_tidy.html): The codebook describing first tidy version dataset 
    + [exam_data_tidier_2025-09-09.txt](results/exam_data_tidier_2025-09-09.txt)
     
   
