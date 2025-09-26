@@ -45,6 +45,5 @@ includes all tasks for the data
 [results](results)  
    + [tidy data version 1](results/tidy data version 1):
      +[exam_data_tidy1.txt](results/tidy data version 1/exam_data_tidy1.txt): first tidy version of exam data 
-    
   
     
