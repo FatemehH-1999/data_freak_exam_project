@@ -4,6 +4,10 @@ This project is part of the RMED901 course, and the answers were prepared by the
 #Goal
 Create plots that would help answer these questions
 
+#Loading libraries
+#Loading tidied data set
+#Plotting
+
 ##Fatemeh
 ###Does the distribution of the ct_result differ with sex group?
 ####Boxplot: compares medians & spread
@@ -21,3 +25,9 @@ No improvement found and the correlation matrix shows almost no correlation (r=0
 ###Were there more females than males that took the test at a drive through?
 ####bar plot
 Yes, there were more females (n=4035) than males (n=3952)
+
+##Sebastian
+####Does the distribution of the ct_result differ with payor_group?
+All groups share the largest distribution at ct_result = 45, with "commercial" having the most results at 45.
+"Government" and "medical assistance" have second highest number at 45. Rest groups approx. same number.
+Some outlier in all groups, with "commercial", "government" and "NA" having the most. Least outliers are in group "charity care" and "other", "medical assistnance".
