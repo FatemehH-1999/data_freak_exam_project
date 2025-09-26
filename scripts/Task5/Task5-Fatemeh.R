@@ -1,9 +1,16 @@
 #Task5_Fatemeh 
 ##Is there a difference in the distributions of ct_results between different outcome groups (result)
 
+
+#Loading libraries
+install.packages("ggridges")
 library(tidyverse)
 library(here)
+library(GGally)
+library(ggridges)
 
+
+#loading post-tidied data set
 data <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
 data
 
