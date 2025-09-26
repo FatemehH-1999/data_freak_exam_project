@@ -4,7 +4,9 @@ This project is part of the RMED901 course, and the answers were prepared by the
 #Goal
 Read and tidy the dataset:
 
+##Loading libraries
 ##Loading "exam_data.txt" into "data1":
+The dataset "exam_data.txt" was imported into R using the read_delim(here().delim = "\t") function
 
 ###Checking dupilication
 ####are there  only unique observations in the data?
