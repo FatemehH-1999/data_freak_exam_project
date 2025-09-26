@@ -6,6 +6,7 @@ Analyse the dataset and answer the following questions:
 
 #Loadoing libraries
 #loading post-tidied data set
+The dataset "exam_data_tidier_2025-09-09.txt" was imported into R using the read_delim(here().delim = " ") function
 #Plotting
 
 ##Fatemeh 
