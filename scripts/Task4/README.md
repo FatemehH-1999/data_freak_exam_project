@@ -34,6 +34,8 @@ The density plot shows that the ct_result distributions for females and males al
 
 ##Sebastian
 ###Does the distribution of the ct_result differ with payor_group?
+####Violin plot: shows full distribution shape
+####Ridgeline chart: shows density distribution for all groups
 All groups share the largest distribution at ct_result = 45, with "commercial" having the most results at 45.
 "Government" and "medical assistance" have second highest number at 45. Rest groups approx. same number.
 Some outlier in all groups, with "commercial", "government" and "NA" having the most. Least outliers are in group "charity care" and "other", "medical assistnance".
