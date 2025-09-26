@@ -22,14 +22,14 @@ data_freak_exam_project is made on RStudio and GitHub for this project
 includes all tasks for the data 
     + [Task2](scripts/Task2): 
       +[exam_Pratik_Day5.R](scripts/Task2/exam_Pratik_Day5.R): Pratik's script 
-      +[Sep5.R](scripts/Task2/Sep5.R): Fatemeh's script
+      +[Fatemeh_Task2_2025-09-05.R](scripts/Task2/Fatemeh_Task2_2025-09-05.R): Fatemeh's script
       +[Sebastian_tidy_attempt.R](scripts/Task2/Sebastian_tidy_attempt.R): Sebastian's script
-      +[merged_script.R](scripts/Task2/merged_script.R): merged version of all the scripts 
+      +[merged_script_2025-09-05.R](scripts/Task2/merged_script_2025-09-05.R): merged version of all the scripts 
       
     + [Task3](scripts/Task3):
       +[Sebas_Task3.R](scripts/Task3/Sebas_Task3.R): Sebastian's script
-      +[Task2,3 revision- Fatemeh.R](scripts/Task3/Task2,3 revision- Fatemeh.R): Fatemeh's script
-      +[Task3_Fatemeh.R](scripts/Task3/Task3_Fatemeh.R): Fatemeh's script
+      +[Fatemeh_Task2,3_revision_2025.09.26.R](scripts/Task3/Fatemeh_Task2,3_revision_2025-09-26.R): Fatemeh's script
+      +[Fatemeh_Task3_2025.09-26-R](scripts/Task3/Fatemeh_Task3_2025-09-26.R): Fatemeh's script
       +[RMED_Task3_merged_2025-09-09.R](scripts/Task3/RMED_Task3_merged_2025-09-09.R): Merged version of all scripts
       
     + [Task4](scripts/Task4):
