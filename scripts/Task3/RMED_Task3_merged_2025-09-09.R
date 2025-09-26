@@ -9,7 +9,6 @@ library(here)
 data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ")
 data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
 
-
 #looking at data set
 glimpse(data)
 
