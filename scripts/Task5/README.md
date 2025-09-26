@@ -12,6 +12,8 @@ The dataset "exam_data_tidier_2025-09-09.txt" was imported into R using the read
 ##Fatemeh 
 ###Is there a difference in the distributions of ct_results between different outcome groups (result)
 Yes, ct_result values are lower in positive cases and higher in negative ones, with no data for the invalid group.
+The boxplot shows clear differences in ct_result by outcome group: positives have lower, more variable Ct values, while negatives and invalids cluster at higher, consistent levels, reflecting the expected inverse link between target amount and Ct.
+The violin plot shows that positive outcomes have distinctly lower and more variable Ct values, while negative and invalid groups cluster at higher, more uniform Ct values, indicating significant distribution differences across outcome groups.
 
 ##Pratik
 ###Are there more positive tests in the drive-through?
