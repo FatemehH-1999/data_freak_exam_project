@@ -11,9 +11,9 @@
 
 <meta name="author" content="Fatemeh, Pratik, Sebastian" />
 
-<meta name="date" content="2025-09-08" />
+<meta name="date" content="2025-09-09" />
 
-<title>Codebook for exam data tidy</title>
+<title>Codebook for exam data tidier</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -363,9 +363,9 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Codebook for exam_data_tidy_2025-09-08</h1>
+<h1 class="title toc-ignore">Codebook for exam_data_tidier_2025-09-09</h1>
 <h4 class="author">Fatemeh, Pratik, Sebastian</h4>
-<h4 class="date">2025-09-08</h4>
+<h4 class="date">2025-09-09</h4>
 
 </div>
 
@@ -379,13 +379,13 @@ Pennsylvania).</p>
 as well as associated metadata. The data has been anonymized,
 time-shifted, and permuted.</p>
 <blockquote>
-<p>This data set has been attempted to be tidyed from the original data set "exam_data.txt". Saved by "write_delim" with delimiter " ".</p>
+<p>This data set has been attempted to be tidyed from the original data set "exam_data.txt" and was further modified by removing, adding and splitting columns. Joined with "exam_data_join.txt". Saved by "write_delim" with delimiter " ".</p>
 </blockquote>
 </div>
 <div id="codebook" class="section level1">
 <h1>Codebook</h1>
 <p>Main data:</p>
-<p><em>A data frame with 34048 observations and 18 variables</em></p>
+<p><em>A data frame with 15315 observations and 19 variables</em></p>
 <table>
 <colgroup>
 <col width="15%" />
@@ -412,32 +412,32 @@ time-shifted, and permuted.</p>
 <td align="left">range: <em>1 - 12346</em></td>
 </tr>
 <tr class="even">
-<td align="left">first_name</td>
+<td align="left">age</td>
 <td align="center">2</td>
+<td align="left">Age for each subject.</td>
+<td align="left">numeric</td>
+<td align="left">range: <em>0 - 138</em></td>
+</tr>
+<tr class="odd">
+<td align="left">gender</td>
+<td align="center">3</td>
+<td align="left">Gender for each subject.</td>
+<td align="left">character</td>
+<td align="left">levels: <em>positive, negative, invalid</em></td>
+</tr>
+<tr class="even">
+<td align="left">first_name</td>
+<td align="center">4</td>
 <td align="left">First name for each subject.</td>
 <td align="left">character</td>
 <td align="left"><em>n.a.</em></td>
 </tr>
 <tr class="odd">
 <td align="left">last_name</td>
-<td align="center">3</td>
+<td align="center">5</td>
 <td align="left">Last name for each subject.</td>
 <td align="left">character</td>
 <td align="left"><em>n.a.</em></td>
-</tr>
-<tr class="even">
-<td align="left">gender</td>
-<td align="center">4</td>
-<td align="left">Gender for each subject.</td>
-<td align="left">character</td>
-<td align="left">levels: <em>positive, negative, invalid</em></td>
-</tr>
-<tr class="odd">
-<td align="left">age</td>
-<td align="center">5</td>
-<td align="left">Age for each subject.</td>
-<td align="left">numeric</td>
-<td align="left">range: <em>0 - 138</em></td>
 </tr>
 <tr class="even">
 <td align="left">clinic_name</td>
@@ -454,127 +454,96 @@ time-shifted, and permuted.</p>
 <td align="left">levels: <em>positive, negative, invalid</em></td>
 </tr>
 <tr class="even">
-<td align="left">demo_group</td>
-<td align="center">8</td>
-<td align="left">Patient group.</td>
-<td align="left">character</td>
-<td align="left">levels: <em>patient, misc_adult, client, other adult,
-unidentified</em></td>
-</tr>
-<tr class="odd">
 <td align="left">drive_thru_ind</td>
-<td align="center">9</td>
+<td align="center">8</td>
 <td align="left">Whether the specimen was collected via a drive-thru
 site.</td>
 <td align="left">numeric</td>
 <td align="left">levels: <em>1: Collected at drive-thru site; 0: Not
 collected at drive-thru site</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ct_result</td>
-<td align="center">10</td>
+<td align="center">9</td>
 <td align="left">Cycle at which threshold reached during PCR.</td>
 <td align="left">numeric</td>
 <td align="left">range: <em>14.05 - 45</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">orderset</td>
-<td align="center">11</td>
+<td align="center">10</td>
 <td align="left">Whether an order set was used for test order.</td>
 <td align="left">numeric</td>
 <td align="left">levels: <em>1: Collected via orderset; 0: Not collected
 via orderset</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">payor_group</td>
-<td align="center">12</td>
+<td align="center">11</td>
 <td align="left">Payor associated with order.</td>
 <td align="left">character</td>
 <td align="left">levels: <em>commercial, government, unassigned, medical
 assistance, self pay, charity care, other</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">patient_class</td>
-<td align="center">13</td>
+<td align="center">12</td>
 <td align="left">Disposition of subject at time of collection.</td>
 <td align="left">character</td>
 <td align="left">levels: <em>inpatient, emergency, observation,
 recurring outpatient, outpatient, not applicable, day surgery, admit
 after surgery-obs, admit after surgery-ip</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">pan_day</td>
-<td align="center">14</td>
+<td align="center">13</td>
 <td align="left">Day after start of pandemic.</td>
 <td align="left">numeric</td>
 <td align="left">range: <em>4 - 107</em></td>
 </tr>
-<tr class="odd">
-<td align="left">test_id</td>
-<td align="center">15</td>
-<td align="left">Test that was performed.</td>
-<td align="left">character</td>
-<td align="left">levels: <em>covid, xcvd1</em></td>
-</tr>
 <tr class="even">
-<td align="left">row</td>
-<td align="center">16</td>
-<td align="left">No declaration given.</td>
-<td align="left">numeric</td>
-<td align="left">levels: <em>covid, xcvd1</em></td>
-</tr>
-<tr class="odd">
-<td align="left">time measurement</td>
-<td align="center">17</td>
-<td align="left">col_rec_tat (time elapsed between collect time and
-receive time) or rec_ver_tat (time elapsed between receive time and
+<td align="left">rec_ver_tat</td>
+<td align="center">14</td>
+<td align="left">rec_ver_tat (time elapsed between receive time and
 verification time)</td>
-<td align="left">character</td>
-<td align="left">levels: <em>col_rec_tat, rec_ver_tat</em></td>
-</tr>
-<tr class="even">
-<td align="left">value</td>
-<td align="center">18</td>
-<td align="left">Values for col_rec_tat and rec_ver_tat in hours.</td>
 <td align="left">numeric</td>
-<td align="left">full range: <em>-18.6 - 61370.2</em>; range col_rec_tat: <em>0 - 61370.2</em>; range rec_ver_tat: <em>-18.6 - 218.2</em>; units:<em>hours</em></td>
+<td align="left">range: <em>-18.6 - 218.2</em></td>
 </tr>
-</tbody>
-</table>
-<p>Additional data:</p>
-<p><em>A data frame with 200 observations and 2 variables</em></p>
-<table>
-<colgroup>
-<col width="15%" />
-<col width="15%" />
-<col width="30%" />
-<col width="15%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"><em><strong>variable</strong></em></th>
-<th align="center"><em><strong>position</strong></em></th>
-<th align="left"><em><strong>description</strong></em></th>
-<th align="left"><em><strong>type</strong></em></th>
-<th align="left"><em><strong>codes</strong></em></th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td align="left">id</td>
-<td align="center">1</td>
-<td align="left">Id number.</td>
+<td align="left">col_rec_tat</td>
+<td align="center">15</td>
+<td align="left">col_rec_tat (time elapsed between collect time and
+receive time)</td>
 <td align="left">numeric</td>
-<td align="left">range: <em>0 - 13000</em></td>
+<td align="left">range: <em>0 - 61370.2</em></td>
 </tr>
 <tr class="even">
-<td align="left">antibody</td>
-<td align="center">2</td>
-<td align="left">Measurement for antibody against covid19 (randomly
-created numbers).</td>
+<td align="left">rec_ver_tat_level</td>
+<td align="center">16</td>
+<td align="left">Showing whether rec_ver_tat is higher than 100 or not: values High/Low.</td>
+<td align="left">character</td>
+<td align="left">levels: <em>High, Low</em></td>
+</tr>
+<tr class="odd">
+<td align="left">pan_week</td>
+<td align="center">17</td>
+<td align="left">Weeks after start of pandemic.</td>
 <td align="left">numeric</td>
-<td align="left">range: <em>21.5-200</em></td>
+<td align="left">range: <em>0.5714 - 15.2857</em></td>
+</tr>
+<tr class="even">
+<td align="left">multi_ct_result_orderset</td>
+<td align="center">18</td>
+<td align="left">Showing multiplication of ct_result and orderset for each person.</td>
+<td align="left">numeric</td>
+<td align="left">range: <em>0 - 45</em></td>
+</tr>
+<tr class="odd">
+<td align="left">antibody</td>
+<td align="center">19</td>
+<td align="left">Measurement for antibody against covid19 (randomly created numbers).</td>
+<td align="left">numeric</td>
+<td align="left">range: <em>21.5 - 200</em></td>
 </tr>
 </tbody>
 </table>
