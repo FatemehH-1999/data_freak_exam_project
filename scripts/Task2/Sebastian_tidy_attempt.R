@@ -32,7 +32,7 @@ glimpse(data1$gender-age) #not working, bound by "-"
 #finding columns with false names
 glimpse(data1)
 
-#"gender-age", "pan day", "1_test_id", "time measurement" and ".value"
+#columns with wrong names: "gender-age", "pan day", "1_test_id", "time measurement" and ".value"
 
 data1 <- data1 %>% 
   rename(gender_age = 'gender-age',
