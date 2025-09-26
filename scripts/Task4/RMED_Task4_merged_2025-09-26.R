@@ -16,7 +16,7 @@ data <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
 data <- data %>% 
   select(-c(ID))
 
-###Sebastian
+###Sebastian----
 ###Are there any correlated measurements?----
 x <- (ggcorr(
   data,
