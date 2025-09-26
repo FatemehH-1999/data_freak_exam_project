@@ -6,6 +6,7 @@ Tidy, adjust, and explore
 
 ##Loading librararies
 ##Loading post tidied data set 
+The dataset "exam_data_tidY_2025-09-08.txt" and "exam_data_join.txt" were imported into R using the read_delim(here().delim = " ") and read_delim(here().delim = "\t") function
 
 ###Looking at data set 
 ###Make necessary changes in variable types
