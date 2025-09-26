@@ -6,7 +6,7 @@ Create plots that would help answer these questions
 
 #Loading libraries
 #Loading tidied data set
-The dataset "exam_data_tidier_2025-09-09.txt" was imported into R using the read_delim() function
+The dataset "exam_data_tidier_2025-09-09.txt" was imported into R using the read_delim(here().delim = " ") function
 #Plotting
 
 ##Sebastian
