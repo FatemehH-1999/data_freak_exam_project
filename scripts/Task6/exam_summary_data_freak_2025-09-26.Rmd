@@ -243,14 +243,16 @@ data_tidier%>%
   ) +
   theme_minimal()
 ```
-We tried to find a correlation between `rec_ver_tat` and `pan_day`. We cannot find improvements and the correlation matrix shows almost no correlation (r=0.01).
+
+We tried to find a correlation between `rec_ver_tat` and `pan_day`. We cannot find improvements and the correlation matrix shows almost no correlation (r=0.01). Similarly, a scatterplot between these two variables also shows a flat which indicates no relationship between these two variables. 
 
 #### Were there more females than males that took the test at a drive through?
 ```{r 4_table_P, echo=FALSE}
 data_tidier %>%
   with(table(gender, drive_thru_ind))
 ```
-Yes, there were more females <em>(n=3997)</em> than males <em>(n=3912)</em>.
+
+Yes, there were more females <em>(n=3997)</em> than males <em>(n=3912)</em> to take test at a drive through. First, filter was done to select only cases with test done at a drive through and a table was generated to segregate by gender.
 
 #### Fatemeh
 #### Does the distribution of the `ct_result` differ with sex group?
@@ -265,7 +267,7 @@ ggplot(data, aes(x = gender, y = ct_result, fill = gender)) +
   theme(legend.position = "none")
 ```
 
-First, we used a violin plot, which shows a full distribution shape. The violin plot indicates that the `ct_result` distributions for females and males are nearly identical, showing no meaningful difference between the two sex groups.
+The violin plot indicates that the `ct_result` distributions for females and males are nearly identical, showing no meaningful difference between the two sex groups. Their medians and overall spread are very similar, with no distinct peaks. Therefore, `gender` has no meaningful effect on `ct_result`.
 
 ```{r 4_plot2_F, echo=FALSE}
 ggplot(data, aes(x = ct_result, colour = gender, fill = gender)) +
@@ -317,8 +319,8 @@ data %>%
 data %>%
   with(prop.table(table(result, drive_thru_ind)))
 ```
-Yes, there are more positive tests in the drive through group both by count <em>(479 versus 381)</em> and proportion <em>(3.1% versus 2.5%)</em>.
 
+When we see the outcome of the tests across the site of specimen collection, we find more positive tests in the drive-through group both by count <em>(479 versus 381)</em> and proportion <em>(3.1% versus 2.5%)</em>.
 
 #### Fatemeh
 #### Is there a difference in the distributions of `ct_results` between different outcome groups (result)?
@@ -332,7 +334,8 @@ ggplot(data, aes(x = result, y = ct_result, fill = result)) +
   theme(legend.position = "none")
 ```
 
-With a Boxplot we could compare median and spread across groups. This way we could show that ct_result values are lower in `positive` cases and higher in `negative` ones, with no data for the `invalid` group. So, yes there is a difference in the distributions of `ct_results` between different outcome groups.
+Yes, `ct_result` values are lower in `positive` cases and higher in `negative` ones, with no data for the `invalid` group.
+The boxplot shows clear differences in `ct_result` by outcome group: `positives` have lower, more variable Ct values, while `negatives` and invalids cluster at higher, consistent levels, reflecting the expected inverse link between target amount and Ct.
 
 #### Sebastian
 #### Is the age of the individual associated with whether the test result is negative or positive?
