@@ -13,13 +13,13 @@ library(ggridges)
 ##loading post-tidied data set----
 data <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
 
-data <- data %>% 
+data1 <- data %>% 
   select(-c(ID))
 
 ###Sebastian----
 ###Are there any correlated measurements?----
 x <- (ggcorr(
-  data,
+  data1,
   method = c("complete.obs", "pearson"),
   name = "Legend",
   geom = "circle",
@@ -107,13 +107,12 @@ ggplot(data, aes(x = payor_group, y = ct_result, fill = payor_group)) +
 ggplot(data, aes(y = payor_group, x = ct_result, fill = payor_group, height = after_stat(density))) +
   geom_density_ridges(scale = 2, stat = "density") +
   scale_y_discrete(expand = c(0.01, 0)) +
-  scale_x_continuous(expand = c(0.01, 0)) +
   theme_ridges() +
   labs(title = "Ridgeline chart of CT results grouped by health care category",
        x = "ct results",
        y = "") +
   theme(legend.position = "none") +
-  xlim(15, 50)
+  xlim(10, 50)
 ####All groups share the largest distribution at ct_result = 45, with "commercial" having the most results at 45.
 ####"Government" and "medical assistance" have second highest number at 45. Rest groups approx. same number.
 ####Some outlier in all groups, with "commercial", "government" and "NA" having the most. Least outliers are in group "charity care" and "other", "medical assistnance".
