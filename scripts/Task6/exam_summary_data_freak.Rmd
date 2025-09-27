@@ -1,0 +1,359 @@
+---
+title: "Exam Summary - Group: Data Freak"
+author: "Fatemeh, Pratik, Sebastian"
+date: "2025-09-26"
+output: html_document
+---
+
+
+```{r libraries and data sets, include=FALSE} 
+library(tidyverse)
+library(here)
+library(GGally)
+library(ggridges)
+
+data <- read_delim(here("data", "exam_data.txt"), delim = "\t")
+data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
+data_tidy <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ")
+data_tidier <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
+```
+
+## Report
+
+This is the exam summary for group `"Data Freak"`, consisting of 3 people. This project is part of the RMED901 course, and the answers were prepared by our group.
+
+We created the GitHub repository `"data_freak_exam_project"` for this exam. This log is made to show that each of us worked on a part of the final report and to be used for the final evaluation.
+
+## Folder structure
+
+The main folder contains a README.md with the complete folder structure and containing files.</br>
+The repository contains the following folders:
+
+    scripts:  - one folder for every task 1 - 6, 
+              - scripts from each group member for each task, with the corresponding part of the task, 
+              - one merged script per task with all important code used for pipelines and/or plots
+              - a descriptive .md-file for every task 
+              
+    data:     - including all 2 used and 2 created tidy data sets for use in scripts
+    
+    results:  - two created tidied and morphed data sets as result for task 2 and 3
+              - corresponding codebook for each data set
+              - .html output of the end report for exam
+            
+    questions:- exam questions
+
+
+## Raw data
+
+We received a data set split into two parts: `exam_data.txt` and `exam_data_join.txt`, as well as the corresponding codebook (`codebook_exam_data.html`).
+
+`exam_data.txt`:
+```{r data, echo=FALSE}
+head(data, n = 1L)
+```
+
+`exam_data_join.txt`:
+```{r data_join, echo=FALSE}
+head(data_join, n = 1L)
+```
+
+## Tasks
+
+### Task 1 - Create an RStudio project and GitHub repository.
+
+We created an RStudio project and GitHub repository with the name `data_freak_exam_project` and is made in RStudio, with GitHub for collaboration. </br>
+URL: `https://github.com/FatemehH-1999/data_freak_exam_project.git`
+
+Folder structure was described above.
+
+### Task 2 - Read and tidy the dataset.
+
+#### Loading libraries, read and glimpse at data set
+To read and tidy the given raw data `exam_data.txt` we first loaded the libraries `here` and `tidyverse`. The data set `exam_data.txt` was imported into R using the `read_delim` function with the delimiter `"\t"`.
+We glimpsed at the data set, which contains <em>34048</em> observations of <em>15</em> variables. 
+
+#### Checking for duplicates
+Next, we checked for duplicates and found <em>12344</em> unique entries. This points to duplicates being present.
+    
+#### Checking for columns with unfavorable name structure
+We checked for difficult for R to interpret column names. We found 5 that need columns to be changed: </br>
+`gender-age`, `pan day`, `1_test_id`, `time measurement` and `.value`  -->  </br>
+`gender_age`, `pan_day`, `test_id`, `time_measurement` and `value`.
+
+#### Looking for columns to separate
+Two columns need to be split up to acquire a tidy data set:</br>
+      `subject` -> separated into `ID`, `First_Name`, `Last_Name` and </br>
+      `gender_age` -> separated into `gender` and `age`
+      
+#### Checking variable types
+The two columns `ID` and `age` have to be changed from type `character` to type `numeric`.
+
+#### Writing file to save tidied data set
+Lastly, we saved the new data set as `exam_data_tidy_2025-09-08.txt` with the function `write_delim` and the delimiter `" "`.
+A glimps at the data set, revealed <em>34048</em> observations of now <em>18</em> variables. 
+
+`exam_data_tidy_2025-09-08.txt`:
+```{r data_tidy, echo=FALSE}
+head(data, n = 1L)
+```
+
+### Task 3 - Tidy, adjust, and explore. 
+
+#### Loading libraries, read and glimpse at data set
+To read and further tidy our data set `exam_data_tidy_2025-09-08.txt` we first loaded the libraries `here` and `tidyverse`. The data set `exam_data.txt` was imported into R using the `read_delim` function with the delimiter `" "`.
+
+#### Necessary changes in variable types
+As described before, two columns needed a change in variable type: `ID` and `age` from `character` to `numeric`, so we converted both variable types.
+
+#### Removing unnecessary columns
+We were tasked to remove three columns from our data set: `row`, `test_id`, `demo_group`.
+
+#### Create a set of new columns
+Next, we were tasked to create new - or change existing columns:</br>
+    - create a column `rec_ver_tat_level` showing, if `rec_ver_tat` is higher than <em>100</em> or not, with values `High/Low`</br>
+    - create a numeric column `pan_week`showing `pan_day` in weeks</br>
+    - change the column `drive_thru_ind` from `numeric` values <em>1</em> and <em>0</em> to `character` values <em>Yes/No</em></br>
+    - create a numeric column `multi_ct_result_orderset` showing multiplication of `ct_result` and `orderset` for each person</br>
+
+#### Change order of columns
+We changed the position of columns `ID`, `age`, `gender` to <em>1</em>, <em>2</em> and <em>3</em>, followed by the rest of the colums.
+
+#### Ascending order 
+The whole data frame was rearranged by ascending values in column `ID`.
+
+#### Read and join the additional dataset to your main dataset
+`exam_data_join.txt` was loaded into R using the `read_delim` function with the delimiter `"\t"`.
+A glimpsed at the data set revealed <em>200</em> observations of <em>2</em> variables. 
+The two data sets were joined with `left_join` function by column `ID`.
+
+#### Explore and comment on the missing variables
+The three columns `payor_group`, `patient_class` and `antibody` contain missing values. 
+
+#### Stratifying of data by each person
+
+##### Sebastian
+
+##### Only for persons tested `pan_day` later than <em>50</em> </br>
+Getting every ID/person tested <em>50</em> days after pandemic start, sort after `pan_day`, calculating and outputting min, max, mean and sd of column `age` after grouping by days after pandemic (`pan_day`):
+
+- for each day after start of pandemic (only 4 rows shown)
+```{r pan_day_each, echo=FALSE}
+age_stratified_after_panday_each <- data_tidier %>% 
+  filter(pan_day > 50) %>% 
+  group_by(pan_day) %>% 
+  summarise(n = n(), 
+            min = min(age),
+            max = max(age), 
+            mean = mean(age), 
+            sd = sd(age))
+head(age_stratified_after_panday_each, n = 4L)
+```
+ total: <em>57</em> observations of <em>6</em> variables
+
+
+- for all days after start of pandemic combined
+```{r pan_day_all, echo=FALSE}
+age_stratified_after_panday_total <- data_tidier %>% 
+  filter(pan_day > 50) %>% 
+  summarise(n = n(), 
+            min = min(age),
+            max = max(age), 
+            mean = mean(age), 
+            sd = sd(age))
+head(age_stratified_after_panday_total)
+```
+            
+##### Fatemeh
+
+##### Only for persons with `ct_result` == <em>45</em>
+Calculating and outputting min, max, mean and sd of column `age` after grouping by `ct_result` == <em>45</em>.
+
+```{r ct_result_all, echo=FALSE}
+age_stratified_after_ctresult_total <- data_tidier %>%
+  filter(ct_result == 45) %>%                               
+  group_by(ct_result) %>% 
+  summarise(n = n(), 
+            min = min(age),
+            max = max(age), 
+            mean = mean(age), 
+            sd = sd(age))
+head(age_stratified_after_panday_total)
+```
+
+
+##### Pratik
+
+##### Only for persons with patient_class == inpatient
+Calculating and outputting min, max, mean and sd of column `pan_day` after filtering by `patient_class` == `inpatient`  and grouping by `gender`.
+
+```{r patient_class_all, echo=FALSE}
+age_stratified_after_patient_class_total <- data_tidier %>%
+  filter(patient_class == "inpatient") %>% 
+  group_by(gender) %>%
+  summarise(
+    min_value  = min(pan_day,na.rm = TRUE),
+    max_value  = max(pan_day,na.rm = TRUE),
+    mean_value = mean(pan_day,na.rm = TRUE),
+    sd_value   = sd(pan_day,na.rm = TRUE),
+    .groups = "drop"
+    )
+head(age_stratified_after_patient_class_total)
+```
+
+### Task 4 - Create plots that would help answer these questions:
+
+#### Sebastian
+#### Are there any correlated measurements?
+```{r 4_correlation, echo=FALSE}
+data <- data_tidier %>% 
+  select(-c(ID))
+
+x <- (ggcorr(
+  data,
+  method = c("complete.obs", "pearson"),
+  name = "Legend",
+  geom = "circle",
+  max_size = 10,
+  min_size = 1,
+  nbreaks = 6,
+  size = 2.5,
+  hjust = 0.75,
+  angle = 0,
+  palette = "RdBu"
+)) 
+x
+```
+
+With a correlation matrix, we could observe some few correlations: </br>
+ - Strongest correlations <em>(0,67 - 1)</em> between `pan_day` & `pan_week` and `orderset` & `multi_ct_result_orderset`. Here, correlation is expected since `pan_week` and `multi_ct_result_orderset` were created out of `pan_day` and `orderset`</br>
+ - weaker correlations <em>(0,33 - 0,67)</em> between `age` & `pan_day`, `age` & `pan_week`, `age` & `col_rec_tat`. Again, `pan_week` is based on `pan_day` and is ignored</br>
+ - rest mostly correlations between <em>0 - 0,33</em> and some between <em>-0,33 - 0</em> and not significant</br>
+
+#### Pratik
+#### Does the time spent waiting for the test result improve during these 100 days that the dataset includes?
+```{r 4_plot1_P, echo=FALSE}
+data_tidier%>%
+  ggplot(aes(x = pan_day, y = rec_ver_tat)) +
+  geom_point(alpha = 0.4, color = "steelblue") +     # scatterplot of points
+  geom_smooth(method = "loess", se = TRUE, color = "red") +  # smooth trend line
+  labs(
+    title = "Change in waiting time for test results over 100 days",
+    x = "Day after start of pandemic",
+    y = "Waiting time (receive → verification)"
+  ) +
+  theme_minimal()
+```
+We tried to find a correlation between `rec_ver_tat` and `pan_day`. We cannot find improvements and the correlation matrix shows almost no correlation (r=0.01).
+
+#### Were there more females than males that took the test at a drive through?
+```{r 4_table_P, echo=FALSE}
+data_tidier %>%
+  with(table(gender, drive_thru_ind))
+```
+Yes, there were more females <em>(n=3997)</em> than males <em>(n=3912)</em>.
+
+#### Fatemeh
+#### Does the distribution of the `ct_result` differ with sex group?
+```{r 4_plot1_F, echo=FALSE}
+ggplot(data, aes(x = gender, y = ct_result, fill = gender)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, fill = "white") +
+  labs(title = "Violin plot of ct_result by gender",
+       x = "gender",
+       y = "ct_result") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+First, we used a violin plot, which shows a full distribution shape. The violin plot indicates that the `ct_result` distributions for females and males are nearly identical, showing no meaningful difference between the two sex groups.
+
+```{r 4_plot2_F, echo=FALSE}
+ggplot(data, aes(x = ct_result, colour = gender, fill = gender)) +
+  geom_density(alpha = 0.4) +
+  labs(title = "Density of ct_result by gender",
+       x = "ct_result",
+       y = "Density") +
+  theme_minimal()
+```
+
+Next, we tried a density plot. This plot shows that the `ct_result` distributions for females and males almost completely overlap, showing no meaningful difference between the two sex groups.
+
+#### Sebastian
+#### Does the distribution of the `ct_result` differ with payor_group?
+```{r 4_plot1_S, echo=FALSE}
+ggplot(data, aes(x = payor_group, y = ct_result, fill = payor_group)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.2, fill = "white") +
+  labs(title = "Violin plot of CT results grouped by health care category",
+       x = "health care",
+       y = "ct result") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  ylim(0, 50)
+```
+
+```{r 4_plot2_S, echo=FALSE}
+ggplot(data, aes(y = payor_group, x = ct_result, fill = payor_group, height = after_stat(density))) +
+  geom_density_ridges(scale = 2, stat = "density") +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  theme_ridges() +
+  labs(title = "Ridgeline chart of CT results grouped by health care category",
+       x = "ct results",
+       y = "") +
+  theme(legend.position = "none") +
+  xlim(10, 50)
+```
+
+For this question we used first a violin plot for the distribution shape and additionally a Ridgeline chart to show the density distribution for all groups. All `payor_group` share the largest distribution at `ct_result` = <em>45</em>, with `commercial` having the most results at <em>45</em>. `Government` and `medical assistance` have second highest number at <em>45</em>. Rest of the groups have approx. the same number. Some outlier are obserable in all groups, with `commercial`, `government` and `NA` having the most. Least outliers are in groups `charity care` and `other`, `medical assistnance`.
+
+
+### Task 5 - Analyse the dataset and answer the following questions:
+
+#### Pratik
+#### Are there more positive tests in the drive through?
+```{r 5_plot1_P, echo=FALSE}
+data %>%
+  with(table(result, drive_thru_ind))
+data %>%
+  with(prop.table(table(result, drive_thru_ind)))
+```
+Yes, there are more positive tests in the drive through group both by count <em>(479 versus 381)</em> and proportion <em>(3.1% versus 2.5%)</em>.
+
+
+#### Fatemeh
+#### Is there a difference in the distributions of `ct_results` between different outcome groups (result)?
+```{r 5_plot1_F, echo=FALSE}
+ggplot(data, aes(x = result, y = ct_result, fill = result)) +
+  geom_boxplot(alpha = 0.7, outlier.color = "red") +
+  labs(title = "Distribution of ct_result across outcome groups",
+       x = "Outcome group (result)",
+       y = "ct_result") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+With a Boxplot we could compare median and spread across groups. This way we could show that ct_result values are lower in `positive` cases and higher in `negative` ones, with no data for the `invalid` group. So, yes there is a difference in the distributions of `ct_results` between different outcome groups.
+
+#### Sebastian
+#### Is the age of the individual associated with whether the test result is negative or positive?
+```{r 5_plot1_S, echo=FALSE}
+ggplot(data, aes(x = result, y = age, fill = result)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.2, fill = "white") +
+  labs(title = "Violin plot representing the age distribution of a corona test result",
+       x = "",
+       y = "age") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+  
+Yes, in general we can say: the younger the person, the more likely it is for the result to be `negative`. Around <em>50 %</em> of individuals age <em>10</em> or younger have `negative` results. Second most distribution <em>(ca. 25 %)</em> age <em>10 - ~23</em>. The median is at age <em>10</em>.
+In comparison, <em>50 %</em> of individuals age <em>20</em> or younger have `positive` results. Second most distribution <em>(ca. 25 %)</em> age <em>20 - ~27</em>. Median is at age <em>20</em>.
+Individuals with `negative` results are approx. <em>10</em> years younger and mor common than individuals with `positive` result.
+
+
+### Task 6 - Write a short report in an Rmd format.
+
+We summarized our structure, data sets, procedures for every task and plots, including analysis in a RMarkdown protocol `exam_summary_data_freak.Rmd`. This file is located in the script/task6 folder and the .html output in the results folder.  
+
+
