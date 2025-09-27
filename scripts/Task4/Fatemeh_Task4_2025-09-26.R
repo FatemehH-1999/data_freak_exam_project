@@ -13,6 +13,8 @@ data
 
 # Violin plot: shows full distribution shape
 ##The violin plot indicates that the ct_result distributions for females and males are nearly identical, showing no meaningful difference between the two sex groups
+##Their medians and overall spread are very similar, with no distinct peaks. 
+##gender has no meaningful effect on ct_result
 ggplot(data, aes(x = gender, y = ct_result, fill = gender)) +
   geom_violin(trim = FALSE, alpha = 0.6) +
   geom_boxplot(width = 0.1, fill = "white") +

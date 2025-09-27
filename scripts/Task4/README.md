@@ -29,6 +29,8 @@ Yes, there were more females (n=3997) than males (n=3912)
 ###Does the distribution of the ct_result differ with sex group?
 ####Violin plot: shows full distribution shape
 The violin plot indicates that the ct_result distributions for females and males are nearly identical, showing no meaningful difference between the two sex groups
+Their medians and overall spread are very similar, with no distinct peaks. 
+gender has no meaningful effect on ct_result
 ####Density plot: both groups overlaid
 The density plot shows that the ct_result distributions for females and males almost completely overlap, indicating no noticeable difference between the two gender groups.
 
