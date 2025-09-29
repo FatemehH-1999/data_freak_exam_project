@@ -1,26 +1,26 @@
 # data_freak_exam_project
 This project is part of the RMED901 course, and the answers were prepared by the Data Freak exam project group.
-#Task5
-#Goal
+# Task5
+# Goal
 Analyse the dataset and answer the following questions:
 
-#Loadoing libraries
-#loading post-tidied data set
+# Loadoing libraries
+# Loading post-tidied data set
 The dataset "exam_data_tidier_2025-09-09.txt" was imported into R using the read_delim(here().delim = " ") function
-#Plotting
+# Plotting
 
-##Fatemeh 
-###Is there a difference in the distributions of ct_results between different outcome groups (result)
+## Fatemeh 
+### Is there a difference in the distributions of ct_results between different outcome groups (result)
 Yes, ct_result values are lower in positive cases and higher in negative ones, with no data for the invalid group.
 The boxplot shows clear differences in ct_result by outcome group: positives have lower, more variable Ct values, while negatives and invalids cluster at higher, consistent levels, reflecting the expected inverse link between target amount and Ct.
 The violin plot shows that positive outcomes have distinctly lower and more variable Ct values, while negative and invalid groups cluster at higher, more uniform Ct values, indicating significant distribution differences across outcome groups.
 
-##Pratik
-###Are there more positive tests in the drive-through?
+## Pratik
+### Are there more positive tests in the drive-through?
 Yes, there are more positive tests in the drive-through group both by count (479 versus 386) and proportion (3.1% versus 2.5%)
 
-##Sebastian
-###Is the age of the individual associated with whether the test result is negative or positive?
+## Sebastian
+### Is the age of the individual associated with whether the test result is negative or positive?
 Yes, in general: the younger the person, the more likely it is for the result to be negative.
 50 % of individuals age 10 or younger have negative results. Second most distribution (ca. 25 %) age 10 - ~23. Median at age 10.
 50 % of individuals age 20 or younger have positive results. Second most distribution (ca. 25 %) age 20 - ~27. Median at age 20.
