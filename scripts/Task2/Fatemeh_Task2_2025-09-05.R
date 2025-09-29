@@ -1,6 +1,6 @@
 library(tidyverse)
 library(here)
-data1 <- read_delim(here("data", "exam_data.txt"), delim = "\t")
+data1 <- read_delim(here("data/raw_data", "exam_data.txt"), delim = "\t")
 
 data1 %>% 
   glimpse()

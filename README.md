@@ -5,9 +5,11 @@ This project is part of the RMED901 course, and the answers were prepared by the
 
 [data](data)
 
-    + [exam_data.txt](data/exam_data.txt): Raw exam data 1
-    + [exam_data_join.txt](data/exam_data_join.txt): Raw exam data 2
-    + [codebook_exam_data.html](data/codebook_exam_data.html): The codebook describing the dataset
+    + [raw_data](data/raw_data):
+      + [exam_data.txt](data/raw_data/exam_data.txt): Raw exam data 1
+      + [exam_data_join.txt](data/raw_data/exam_data_join.txt): Raw exam data 2
+      + [codebook_exam_data.html](data/raw_data/codebook_exam_data.html): The codebook describing the raw data sets
+    
     + [README.md](data/README.md): placeholder 
     + [exam_data_tidy_2025_09_08.txt](data/exam_data_tidy_2025_09_08.txt): Tidy version of exam data 
     + [exam_data_tidier_2025_09_09.txt](data/exam_data_tidier_2025_09_09.txt): Tidier version of exam data + exam data join
@@ -17,7 +19,7 @@ This project is part of the RMED901 course, and the answers were prepared by the
     + [exam_descr.md](questions/exam_descr.md): Tasks + Questions for the data
 
 [scripts](scripts)
-includes all tasks for the data
+includes all tasks for the data set
 
     + [Task1](scripts/Task1):
       + [README.md](scripts/Task1/README.md)
@@ -26,7 +28,7 @@ includes all tasks for the data
       + [Pratik_Task2_2025-09-05.R](scripts/Task2/Pratik_Task2_2025-09-05.R): Pratik's script 
       + [Fatemeh_Task2_2025-09-05.R](scripts/Task2/Fatemeh_Task2_2025-09-05.R): Fatemeh's script
       + [Sebastian_Task2_2025-09-05.R](scripts/Task2/Sebastian_Task2_2025-09-05.R): Sebastian's script
-      + [merged_script_2025-09-05.R](scripts/Task2/merged_script_2025-09-05.R): merged version of all the scripts 
+      + [RMED_Task2_merged_2025-09-05.R](scripts/Task2/merged_script_2025-09-05.R): merged version of all the scripts 
       + [README.md](scripts/Task2/README.md)
       
     + [Task3](scripts/Task3):

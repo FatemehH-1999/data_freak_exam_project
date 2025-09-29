@@ -7,7 +7,6 @@ library(here)
 
 ##loading post-tidied data set----
 data <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ")
-data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
 
 #looking at data set
 glimpse(data)
@@ -67,7 +66,7 @@ data <- data %>%
   arrange(ID)
 
 ##read and join the additional dataset to your main dataset.----
-data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
+data_join <- read_delim(here("data/raw_data", "exam_data_join.txt"), delim = "\t")
 
 data <- data %>%
   left_join(data_join, join_by("ID" == "id"))
@@ -162,7 +161,7 @@ data1 %>%
 ##Pratik----
 #Stratify your data by a categorical column and report min, max, mean and sd of a numeric column
 #Only for persons with patient_class == inpatient
-merged_data %>%
+data1 %>%
   filter(patient_class == "inpatient") %>% 
   group_by(gender) %>%
   summarise(
@@ -178,9 +177,9 @@ merged_data %>%
 #End of Stratifying----
 
 #Use two categorical columns in your dataset to create a table (with count())----
-data1_dummy %>% 
+data1 %>% 
   count (ID, first_name)
 #any more ideas???
 #Pratik
-merged_data %>%
+data1 %>%
   with(table(gender, rec_ver_tat_level))

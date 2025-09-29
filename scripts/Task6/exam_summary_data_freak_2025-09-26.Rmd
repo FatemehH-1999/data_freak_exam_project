@@ -12,8 +12,8 @@ library(here)
 library(GGally)
 library(ggridges)
 
-data <- read_delim(here("data", "exam_data.txt"), delim = "\t")
-data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
+data <- read_delim(here("data/raw_data", "exam_data.txt"), delim = "\t")
+data_join <- read_delim(here("data/raw_data", "exam_data_join.txt"), delim = "\t")
 data_tidy <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ")
 data_tidier <- read_delim(here("data", "exam_data_tidier_2025-09-09.txt"), delim = " ")
 ```
@@ -33,11 +33,12 @@ The repository contains the following folders:
               - scripts from each group member for each task, with the corresponding part of the task, 
               - one merged script per task with all important code used for pipelines and/or plots
               - a descriptive .md-file for every task 
+              - the exam summary as .Rmd- and .html-file in task 6
               
-    data:     - including all 2 used and 2 created tidy data sets for use in scripts
+    data:     - including all 2 used raw data sets, a codebook and 2 created tidy and morphed data sets for use in scripts
     
     results:  - two created tidied and morphed data sets as result for task 2 and 3
-              - corresponding codebook for each data set
+              - corresponding codebooks for each data set
               - .html output of the end report for exam
             
     questions:- exam questions

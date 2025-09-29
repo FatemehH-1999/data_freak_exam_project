@@ -5,7 +5,7 @@ library(tidyverse)
 library(here)
 
 #reading data and assining to data1----
-data1 <- read_delim(here("data", "exam_data.txt"), delim = "\t")
+data1 <- read_delim(here("data/raw_data", "exam_data.txt"), delim = "\t")
 
 #exploring data----
 

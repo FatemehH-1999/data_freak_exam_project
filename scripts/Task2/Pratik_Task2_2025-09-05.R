@@ -3,7 +3,7 @@
 library(tidyverse)
 
 # Read the .txt file from the data folder
-exam_data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
+exam_data_join <- read_delim(here("data/raw_data", "exam_data_join.txt"), delim = "\t")
 spec(exam_data_join)
 glimpse(exam_data_join)
 skimr::skim(exam_data_join)
@@ -20,7 +20,7 @@ combined_vars <- exam_data_join %>%
   filter(has_combined_values)
 
 # Read the .txt file from the data folder
-exam_data <- read_delim(here("data", "exam_data.txt"), delim = "\t")
+exam_data <- read_delim(here("data/raw_data", "exam_data.txt"), delim = "\t")
 spec(exam_data)
 glimpse(exam_data)
 skimr::skim(exam_data)

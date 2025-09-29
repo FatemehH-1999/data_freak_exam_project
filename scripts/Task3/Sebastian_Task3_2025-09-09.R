@@ -5,7 +5,7 @@ library(here)
 
 #loading post-tidied data set
 data1 <- read_delim(here("data", "exam_data_tidy_2025-09-08.txt"), delim = " ")
-data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
+data_join <- read_delim(here("data/raw_data", "exam_data_join.txt"), delim = "\t")
 data1_dummy <- data1
 
 #looking at data set
@@ -52,7 +52,7 @@ data1_dummy <- data1_dummy %>%
 
 #continuation of tasks on 10.09.25----
 #read and join the additional dataset to your main dataset.
-data_join <- read_delim(here("data", "exam_data_join.txt"), delim = "\t")
+data_join <- read_delim(here("data/raw_data", "exam_data_join.txt"), delim = "\t")
 
 data1_dummy <- data1_dummy %>%
   left_join(data_join, join_by("ID" == "id"))
